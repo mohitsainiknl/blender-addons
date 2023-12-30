@@ -1,0 +1,33 @@
+{
+    "description": "",
+    "type": "SIMPLE",
+    "pie": {
+        "enabled": false,
+        "icon": "",
+        "space": "Any Space"
+    },
+    "undo_file": [
+        "",
+        ""
+    ],
+    "done": false,
+    "variables": [],
+    "files": [
+        [
+            "VG - File 1",
+            [
+                "",
+                "import bpy",
+                "",
+                "groups = bpy.context.object.vertex_groups",
+                "for group in reversed(groups):",
+                "    if not group.lock_weight:",
+                "        groups.remove(group)",
+                "        ",
+                "",
+                "",
+                ""
+            ]
+        ]
+    ]
+}

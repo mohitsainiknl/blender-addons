@@ -1,0 +1,85 @@
+{
+    "description": "",
+    "type": "SIMPLE",
+    "pie": {
+        "enabled": false,
+        "icon": "",
+        "space": "Any Space"
+    },
+    "done": false,
+    "undo_file": [
+        "",
+        ""
+    ],
+    "variables": [
+        {
+            "id": "7850",
+            "name": "Connect Dis",
+            "type": "Float",
+            "description": "",
+            "disappear_if": "",
+            "disable_if": "",
+            "emboss": true,
+            "expand": false,
+            "slider": true,
+            "toggle": false,
+            "separator": 0.0,
+            "update_file": [
+                "",
+                ""
+            ],
+            "data": {
+                "subtype": "NONE",
+                "unit": "NONE",
+                "default": 0.019999999552965164,
+                "step": 3,
+                "precision": 6,
+                "use_min": true,
+                "use_max": true,
+                "use_soft_min": true,
+                "use_soft_max": true,
+                "min": 0.0,
+                "max": 1.0,
+                "soft_min": 0.009999999776482582,
+                "soft_max": 0.05000000074505806
+            }
+        }
+    ],
+    "files": [
+        [
+            "P-by-D Code File 1.py",
+            [
+                "# Parent by distance",
+                "",
+                "import bpy",
+                "",
+                "def connect(from_bone, to_bone, distance):",
+                "    use_connect = distance < 0.05",
+                "    from_bone.use_connect = use_connect",
+                "    from_bone.parent = to_bone",
+                "",
+                "if bpy.context.mode == 'EDIT_ARMATURE':",
+                "    if len(bpy.context.selected_editable_bones) > 0:",
+                "        selected_bones = bpy.context.selected_editable_bones",
+                "        for bone in selected_bones:",
+                "            for bone2 in selected_bones:",
+                "                distance = abs((bone.head - bone2.tail).length)",
+                "",
+                "                if distance <= tool.connect_dis:",
+                "                    connect(bone, bone2, distance)",
+                "                    break",
+                "    else:",
+                "        self.report({'ERROR'}, message='No Bone Selected')",
+                "else:",
+                "    self.report({'ERROR'}, message='Switch to Armature Edit Mode')",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        ]
+    ]
+}
